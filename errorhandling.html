@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.onerror = function (message, url, line, col, error) {
+            alert(`${message}\n At ${line}:${col} of ${url}`);
+        };
+
+        function readData() {
+            badFunc(); // Whoops, something went wrong!
+        }
+
+        readData();
+        
+        function func() {
+
+            try {
+                return 1;
+
+            } catch (err) {
+                /* ... */
+            } finally {
+                // alert('finally');
+            }
+        }
+
+        // alert(func());
+        try {
+            let json = '{"age":30,"name":"dhruvi"}';
+            let user = JSON.parse(json);
+            // alert(user.name);
+            // alert(user.age);
+        } catch (err) {
+
+            // alert(err.message);
+
+        }
+    </script>
+</body>
+
+</html>

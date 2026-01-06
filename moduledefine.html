@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+   <script type="module">
+    import { sayHi } from "./main.js";
+
+    sayHi("dhruvi");
+    //  alert(this);
+
+    async function load() {
+      let say = await import('./Module.js');
+      say.hi(); // Hello!
+      // say.bye(); // Bye!
+      // say.default(); // Module loaded (export default)!
+    }
+     window.load = load;
+  </script>
+</head>
+<body>
+<button onclick="load();">Click me</button>
+ 
+  
+  
+
+</body>

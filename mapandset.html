@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getwookday(date){
+            let days = ['su','mo','tu','we','th','fri','sa']
+            return days[date.getDay()];
+        }
+        let date = new Date(2014,0,3);
+        alert(getwookday(date));
+
+        let da = new Date(2025,1,28);
+        // alert(da);
+ 
+
+        let obj ={
+            title : "abc",
+            author : "xyz",
+            height : 56
+        }
+
+        let {title,au,he} = obj;
+
+        // alert(title);
+
+        let arr = ["abc","pqr","xyz"];
+        let [fnm,lnm] =arr;
+        // alert(fnm);
+        // alert(lnm);
+
+        let user = {
+            name: "John",
+            age: 30
+        };
+
+        // loop over values
+        for (let value of Object.values(user)) {
+            // alert(value); // John, then 30
+        }
+
+
+        let recipeMap = new Map([
+            ['abc', 500],
+            ['tomato', 400],
+            ['onaion', 50]
+        ]);
+
+        for (let v of recipeMap) {
+            // alert(v);
+        }
+
+        let map = new Map();
+
+        map.set('1', 'str1');
+        map.set(1, 'num1');
+
+        // alert(map.get(1));
+        // alert(map.size);
+    </script>
+</body>
+
+</html>

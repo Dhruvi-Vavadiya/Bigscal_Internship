@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let recipeMap = new Map ([
+            ["abc",500],
+            ["tomato",400],
+            ["onaion",50]
+        ]);
+
+        for(let v of recipeMap.key()){
+            alert(v);
+        }
+        let user = [
+            {id : 1,name : "abc"},
+            {id : 2,name : "def"},
+            {id : 3,name : "ghi"},
+            {id : 4,name : "jkl"}
+        ];
+        let len = user.map(il => il.length);
+        alert(len);
+
+        let someUsers = user.filter(i => i.id < 3);
+        alert(someUsers.length);
+
+        let users = user.find(item => item.id == 1);
+
+        alert(users.id + " " + users.name);
+
+        alert(user.findIndex(item => item.name == "def"));
+
+        alert(user.findLastIndex(item => item.name == "jkl"));
+
+
+
+    </script>
+</body>
+</html>

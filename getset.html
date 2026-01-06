@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        try {
+            function userdata(nm,age){
+                this.nm = nm;
+                this.age = age;
+
+                Object.defineProperty(this, "ds", {
+                    get() {
+                        let todayYear = new Date().getFullYear();
+                        return todayYear - this.age;
+                    }
+                });
+                
+            }
+            let udata = new userdata("dhruvi",21);
+            alert(udata.ds)
+
+            let user = {
+                "name": "dhruvi",
+                "age": 22,
+
+                // Object.defineProperty(this,"date",{
+                //     get(){
+                //         let todayYear = new Date().getFullYear();
+                //         alert(todayYear);
+                //     }
+                // }),
+
+                get fullname() {
+                    return "name :- " + this.name + " Age :-" + this.age;
+                },
+
+                set fullname(value) {
+                    [this.name, this.age] = value.split(",");
+                }
+
+            };
+            user.fullname = "abc,58";
+            // alert(user.fullname);
+
+        } catch (err) {
+
+
+            alert(err.message);
+        } finally {
+
+        }
+
+    </script>
+</body>
+
+</html>

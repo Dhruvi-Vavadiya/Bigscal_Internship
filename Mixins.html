@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let method_s = {
+            sayHii(){
+                alert("Hii");
+            },
+            sayBye(){
+                alert("Bye");
+            }
+        };
+
+        class User {
+            
+            constructor(name) {
+                this.nm = name;  
+            }
+
+           
+        }
+
+         function loadData() {
+                let scir  = document.createElement('p');
+                
+                setTimeout(() => {
+                    scir.textContent = `This is a paragraph from `;  
+                    scir.onload = () => callback(scir);
+                    alert("data loaded");
+                }, 5000);
+                document.body.appendChild(scir);
+            }
+
+
+        loadData();
+        Object.assign(User.prototype,method_s);
+
+        let u = new User("dhruvi");
+        u.sayHii();
+        // u.sayBye();
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //Array
+
+        let fruits =  ["apple","mango","grapes","kiwi"];
+
+        for(let i = 0; i < fruits.length;i++){
+            // alert(`item ${i} :- ${fruits[i]}`);
+        }
+        for(let f of fruits){
+            // alert(f); 
+            // alert(fruits[f]);//undefined
+        }
+        for(let i in fruits){ 
+            // alert(`item ${i} :- ${fruits[i]}`);
+        }
+
+        // fruits.push("mango","banana");
+        // fruits.unshift("jambu","abc");
+        // alert(fruits.shift());
+        // alert(fruits.pop());
+        // fruits.push("gwava")
+        // alert(fruits);
+        // alert(fruits.length);
+        // alert(fruits[fruits.length - 1]);
+
+        let room = {
+            number: 23
+        };
+        let student = {
+            name: 'John',
+            age: 30,
+            isAdmin: false,
+            courses: ['html', 'css', 'js'],
+            spouse: null,
+            room
+        };
+
+        // alert(student); 
+        let json = JSON.stringify(student);
+
+        // alert(typeof json);
+        // alert(json);
+
+        let str2 = "This is a string";
+        // alert("substrting :- " +str2.substring(2,10));  
+        // alert("slice :-" +str2.slice(2)); 
+        // alert("slice :- " +str2.slice(2,10)); 
+        // alert("substr :-" + str2.substr(2,10))
+
+        // let str = "hwllo  is dfef deef hafa";
+        // str = 'k' + str[0] + str[1];
+        // alert(str); 
+        // alert("widtght with id".includes("wi"));
+        // alert(str.indexOf('is',8));
+        // alert('Widget'.includes('id',2));
+        // alert(str.indexOf('is'));
+        // alert(str.indexOf('khwllo'));
+
+        let n = 14.475789489;
+        // alert(n.toFixed(3));
+        // alert(n.toPrecision(4));
+
+        let str = "dhWndugy";
+        for (let s of str){
+            // alert(s); 
+        }
+
+        // alert(str[str.length - 1]);
+        // alert(str.at(-1));
+        // alert(str[-2]); 
+        // alert(str.indexOf("Wn"));
+        // alert(str.includes("Wn"));
+        // alert(str.startsWith("dh"));
+        // alert((str.toUpperCase()));
+
+        let obj = {
+            toString(){
+                return "dhruvi";
+            }
+        };
+
+        // alert(obj * 2);
+
+        // let users = {
+        //     name: "nenu",
+        //     age:16,
+        //     toString(){
+        //         return `{name : "${this.name}", age : ${this.age}}`;
+        //     },
+        //     valueOf(){
+        //         return this.age;
+        //     }
+        // };
+
+        // alert(users);
+        // alert(+users);
+        // alert(users + 10);
+
+        let id = Symbol("id");
+        let us = {
+            name : "djruv",
+            age : 50,
+            [id] : 1245
+        };
+
+        for(let k in us){
+          //  alert(k);
+        }
+
+        // alert("direct access " + us[id]);
+
+        let userguest = {
+            admin(){
+                alert("i am admin");
+            }
+        };
+
+        // let userAdmun = {};
+
+        // userguest.admin?.();
+        // userAdmun.admin?.();
+
+        // let users = {}
+        // alert(users.name ? users.name : "no name");
+
+        function employee(name){
+            this.name = name;
+
+            this.sayHeelo = function(){
+                alert("hello " + this.name);
+            };
+        }
+
+        let Obj = new employee("john");
+        // Obj.sayHeelo();
+
+        function Users(name){
+            this.name = name;
+            this.isAdmin = false;
+        }
+        let u = new Users("jon");
+        // alert(u.name);
+        // alert(u.isAdmin);
+
+        let users = {
+            name:"users of john",
+            age:30
+        };
+        // let admin = {
+        //     name:"admin",
+        //     age:40
+        // };
+
+
+        // function sayhi(){
+        //     alert(this.name);
+        // }
+        // function sayhello(){
+        //     alert("hello " + this.name);
+        // }
+
+        // users.f =sayhi;
+        // users.f = sayhello;
+        // admin.f =sayhi;
+
+        // users.f();
+        // admin.f();
+
+        // users['f']();
+
+
+        function makeUser(name, age) {
+            return {
+                name: name,
+                age: age
+            };
+        }
+
+        let user = makeUser("janvi", 45);
+        // alert(user.name)
+
+        // alert("age" in user);
+
+        for (let k in user) {
+            // alert(k);
+            // alert(user[k])
+        }
+        // let fru = prompt("which froiut to buy?","apple");
+        // let beg = {};
+
+        // beg[fru] = 5;
+
+        // alert(beg.fru);
+
+        // let user = {
+        //     name : "drvuvi",
+        //     age : 22,
+        //     gender :"female"
+        // };
+        // alert(user.gender + user.age);
+        function defaluPara(from,text = "no text given"){
+            alert(`${from} == ${text}`);
+        }
+
+        function defalitFunc(){
+            alert("defalut function running...");
+        }
+
+        function executeDefalufunc(fo,to = defalitFunc()){
+            alert("deugging...");
+            debugger; 
+            alert(`${fo} executeDefalufunc calling....${to}`);
+        }
+
+        // executeDefalufunc("first value");
+        // defaluPara(45,null); 
+
+        let unm = "john";
+        function showMessage(){
+            unm = "mahadev!!";
+            let mes = `Hello, ${unm}`;
+            alert(mes);
+        }   
+        alert(unm);
+
+        showMessage();
+         alert(unm);
+    </script>
+</body>
+
+</html>
