@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./test.js"></script>
+    <style>
+        .invalid {
+            border-color: red;
+        }
+
+        #data {
+            color: red;
+        }
+
+        .view,
+        .edit {
+            height: 150px;
+            width: 400px;
+            font-family: sans-serif;
+            font-size: 14px;
+            display: block;
+        }
+
+        .view {
+            /* padding + border = 3px */
+            padding: 2px;
+            border: 1px solid black;
+        }
+
+        .edit {
+            /* replace padding with border (still 3px not to shift the contents) */
+            border: 3px solid blue;
+            padding: 0px;
+        }
+
+        .edit:focus {
+            /* remove focus border in Safari */
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="data"></h1>
+    <form action="" name="myfo">
+        <!-- <input type="text" name="one" value="firestvale" id="">
+        <input type="text" name="seconed" value="secoendvale" id=""> -->
+
+    </form>
+    <input type="text" id="mail">
+
+    <div id="view" class="view"></div>
+
+    <form id="formElem">
+        <input type="text" name="name" value="Ervin Howell">
+        <input type="text" name="email" value="Shanna@melissa.tv">
+        <input type="submit">
+    </form>
+
+    <script>
+        formElem.onsubmit = async (e) => {
+            e.preventDefault();
+
+            let response = await fetch('https://jsonplaceholder.typicode.com/users', {
+                method: 'POST',
+                body: new FormData(formElem)
+            });
+
+            let result = await response.json();
+
+            alert(result.message);
+        };
+
+        fetch("./app.json")
+            .then(res => res.json())
+            .then(commit => alert(commit.user.email.slice(0,) + "..."))
+            .catch(err => alert(err.message));
+
+        // fetch();
+
+        function work() {
+            // alert("working loaded");
+        }
+
+        if (document.readyState == "loading") {
+            document.addEventListener("DOMContentLoaded", work);
+        } else {
+            work();
+        }
+        let textarea = null;
+        let view = document.getElementById("view");
+
+        view.onclick = function () {
+            editTextbox();
+        }
+        function editTextbox() {
+            textarea = document.createElement('textarea');
+            textarea.className = 'edit';
+            textarea.value = view.innerHTML;
+
+            textarea.onblur = function () {
+                editEnd();
+            }
+            view.replaceWith(textarea);
+            textarea.focus();
+
+
+        }
+        function editEnd() {
+            view.innerHTML = textarea.value;
+            textarea.replaceWith(view);
+        }
+        // let data = document.getElementById("data");
+        // let form = document.forms.myfo;
+
+        // let ele = form.elements.one;
+
+        // data.innerText = ele.value;
+
+        // document.cookie = "firstformdata=" + ele.value;
+        // document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+
+
+        // data.innerText += document.cookie;
+
+        mail.onblur = function () {
+            if (!mail.value.includes('@')) {
+                mail.classList.add('invalid');
+                data.innerHTML = "Enter plz email";
+            }
+        };
+        mail.onfocus = function () {
+            if (this.classList.contains('invalid')) {
+                this.classList.remove('invalid');
+                data.innerHTML = "";
+            }
+        };
+    </script>
+</body>
+
+</html>
